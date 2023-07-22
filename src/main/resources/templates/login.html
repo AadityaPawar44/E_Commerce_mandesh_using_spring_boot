@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+
+
+	<section th:style="'background-image: url(' + @{/img1.png} + '); background-repeat: no-repeat; background-size: cover; height: 530px;'">
+
+		<div class="container p-5">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Login Page</div>
+
+						<div th:if="${param.error}" class="alert alert-danger">
+							Invalid Username & Password</div>
+
+						<div th:if="${param.logout}" class="alert alert-success">
+							Logout Successfully</div>
+
+						<div class="card-body">
+							<form action="/login" method="post">
+
+								<div class="mb-3">
+									<input type="text" name="email" placeholder="Enter Email"
+										class="form-control" required>
+								</div>
+
+
+								<div class="mb-3">
+									<input type="text" placeholder="Enter Password"
+										name="password" class="form-control" required>
+								</div>
+								<div onclick="userLogin()" style="text-align: center;"><button class="btn btn-outline-success" >Login</button></div>
+							</form>
+						</div>
+						<div class="container" style="text-align: center;">
+							<p> Don't have an account? <a th:href="@{/register}"> Register here</a><br>
+								<a th:href="@{/forgot}">Forgot Password?</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	
+	</section>
+	<script type="text/javascript">
+	var userEmail=document.getElementById("email");
+	var userPassword=document.getElementById("password");
+
+	
+	
+	</script>
+
+
+</body>
+</html>
